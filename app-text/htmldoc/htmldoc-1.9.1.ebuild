@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit toolchain-funcs
+inherit toolchain-funcs xdg-utils eutils
 
 DESCRIPTION="Convert HTML pages into a PDF document"
 HOMEPAGE="https://michaelrsweet.github.io/htmldoc/"
@@ -22,6 +22,9 @@ S="${WORKDIR}"
 src_prepare() {
 	default
 
+    cd "${S}"
+    epatch "${FILESDIR}/htmldoc-desktop.patch"
+
 	# make sure not to use the libs htmldoc ships with
 	rm -r jpeg png zlib || die 'failed to unbundle jpeg, png, and zlib'
 
@@ -40,4 +43,12 @@ src_configure() {
 
 src_install() {
 	emake DSTROOT="${D}" install
+}
+
+pkg_postinst() {
+	xdg_mimeinfo_database_update
+}
+
+pkg_postrm() {
+	xdg_mimeinfo_database_update
 }
