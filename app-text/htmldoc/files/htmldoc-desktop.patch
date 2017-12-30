@@ -1,8 +1,0 @@
---- desktop/htmldoc.desktop	2017-10-30 01:09:50.000000000 +0300
-+++ desktop/htmldoc.desktop	2017-12-22 05:28:05.000000000 +0300
-@@ -7,4 +7,4 @@
- Exec=htmldoc %F
- Icon=htmldoc
- Terminal=false
--Categories=Application;Office;X-Red-Hat-Base;
-+Categories=Office;X-Red-Hat-Base;

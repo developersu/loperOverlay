@@ -11,6 +11,7 @@ IUSE="fltk"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="alpha amd64 ~arm ~hppa ia64 ppc ppc64 sparc x86"
+RESTRICT="strip"	# Not sure
 
 DEPEND=">=media-libs/libpng-1.4:0=
 	virtual/jpeg:0
@@ -21,9 +22,9 @@ S="${WORKDIR}"
 
 src_prepare() {
 	default
-
-    cd "${S}"
-    epatch "${FILESDIR}/htmldoc-desktop.patch"
+	
+	# Patch .desktop file to remove Appllication declaration, that is incorrect.
+	sed -i -e 's/Application;//' desktop/htmldoc.desktop || die 'failed to patch .desktop file'
 
 	# make sure not to use the libs htmldoc ships with
 	rm -r jpeg png zlib || die 'failed to unbundle jpeg, png, and zlib'
