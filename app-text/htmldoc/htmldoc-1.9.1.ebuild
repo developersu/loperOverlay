@@ -7,7 +7,7 @@ inherit toolchain-funcs xdg-utils eutils
 DESCRIPTION="Convert HTML pages into a PDF document"
 HOMEPAGE="https://michaelrsweet.github.io/htmldoc/"
 SRC_URI="https://github.com/michaelrsweet/${PN}/releases/download/v${PV}/${P}-source.tar.gz"
-IUSE="fltk"
+IUSE="fltk cyrillic-fonts"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="alpha amd64 ~arm ~hppa ia64 ppc ppc64 sparc x86"
@@ -20,9 +20,15 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
 
+
 src_prepare() {
 	default
-	
+
+	if use cyrillic-fonts; then
+	# Taken already prepared fonts, created from GPL Cyrillic fonts available at ftp://ftp.gnome.ru/fonts/ by Sergei Kolodka (sergei@kolodka.com).
+		cp ${FILESDIR}/fonts/* fonts
+	fi
+
 	# Patch .desktop file to remove Appllication declaration, that is incorrect.
 	sed -i -e 's/Application;//' desktop/htmldoc.desktop || die 'failed to patch .desktop file'
 
