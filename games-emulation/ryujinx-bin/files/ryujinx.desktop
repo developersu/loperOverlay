@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Ryujinx
+Comment=Nintendo Switch Emulator
+Icon=ryujinx
+Type=Application
+Categories=Game;Emulator;
+Exec=ryujinx
+
