@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-inherit eutils flag-o-matic versionator games
+inherit eutils flag-o-matic versionator 
 
 DESCRIPTION="Open-source replacement for Quake 3 Arena"
 HOMEPAGE="http://openarena.ws/"
