@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-inherit eutils flag-o-matic versionator 
+inherit eutils flag-o-matic versionator
 
 DESCRIPTION="Open-source replacement for Quake 3 Arena"
 HOMEPAGE="http://openarena.ws/"
@@ -35,7 +35,7 @@ DIR=${GAMES_DATADIR}/${PN}
 
 src_prepare() {
 	cd "${WORKDIR}"
-	epatch "${FILESDIR}"/${P}-makefile.patch 
+	epatch "${FILESDIR}"/${P}-makefile.patch
 	cd "${MY_S}"
 	touch jpegint.h
 }
@@ -62,8 +62,8 @@ src_compile() {
 
 src_install() {
 	cd "${MY_S}"/"${BUILD_DIR}"
-	newgamesbin openarena-smp.* "${PN}"
-	newgamesbin oa_ded.* "${PN}-ded"
+	newbin openarena-smp.* "${PN}"
+	newbin oa_ded.* "${PN}-ded"
 	cd "${S}"
 
 	insinto "${DIR}"
@@ -73,5 +73,5 @@ src_install() {
 	newicon "${MY_S}"/misc/quake3.png ${PN}.png
 	make_desktop_entry ${PN} "OpenArena"
 
-	prepgamesdirs
+#	prepgamesdirs
 }
