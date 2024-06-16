@@ -1,14 +1,17 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
-inherit eutils flag-o-matic versionator
+EAPI=8
+
+inherit flag-o-matic desktop
 
 DESCRIPTION="Open-source replacement for Quake 3 Arena"
 HOMEPAGE="http://openarena.ws/"
-SRC_URI="mirror://sourceforge/oarena/${P}.zip
-	mirror://sourceforge/oarena/src/${PN}-engine-source-${PV}.tar.bz2"
+SRC_URI="
+	https://downloads.sourceforge.net/oarena/openarena-0.8.8.zip
+	https://downloads.sourceforge.net/oarena/files/src/${PN}-engine-source-${PV}.tar.bz2
+"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -31,13 +34,16 @@ DEPEND="${RDEPEND}
 
 MY_S=${WORKDIR}/${PN}-engine-source-${PV}
 BUILD_DIR=${PN}-build
-DIR=${GAMES_DATADIR}/${PN}
+DIR="/usr/share/${PN}"
 
 src_prepare() {
 	cd "${WORKDIR}"
-	epatch "${FILESDIR}"/${P}-makefile.patch
+	PATCHES=(
+		"${FILESDIR}"/${P}-makefile.patch
+	)
 	cd "${MY_S}"
 	touch jpegint.h
+	default
 }
 
 src_compile() {
