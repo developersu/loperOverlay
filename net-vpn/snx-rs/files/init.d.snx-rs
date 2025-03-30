@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+
+depend() {
+	need net 
+	use dns logger 
+}
+
+start() {
+	start-stop-daemon --start --background \
+        --make-pidfile --pidfile /var/run/snx-rs.pid \
+	--exec /usr/bin/snx-rs -- ${SNX_RS_OPTS}
+	eend $?
+}
+
+stop() {
+	start-stop-daemon --stop --quiet --pidfile /var/run/snx-rs.pid
+        eend $?
+}
