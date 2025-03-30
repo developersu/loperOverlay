@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=virtual/opengl media-libs/libsdl[joystick,opengl,video] media-libs/speex virtual/jpeg:0 x11-libs/libXext x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp curl? ( net-misc/curl ) openal? ( media-libs/openal ) vorbis? ( media-libs/libvorbis ) app-arch/unzip
+DESCRIPTION=Open-source replacement for Quake 3 Arena
+EAPI=8
+HOMEPAGE=http://openarena.ws/
+INHERIT=flag-o-matic desktop
+IUSE=+curl +openal +vorbis
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=virtual/opengl media-libs/libsdl[joystick,opengl,video] media-libs/speex virtual/jpeg:0 x11-libs/libXext x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp curl? ( net-misc/curl ) openal? ( media-libs/openal ) vorbis? ( media-libs/libvorbis )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/oarena/openarena-0.8.8.zip https://downloads.sourceforge.net/oarena/files/src/openarena-engine-source-0.8.8.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	desktop	021728fdc1b03b36357dbc89489e0f0d
+_md5_=29570f9a807b355cee1e0a12cbcd5847

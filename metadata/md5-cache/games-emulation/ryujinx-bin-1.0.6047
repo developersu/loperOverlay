@@ -1,0 +1,13 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=Nintendo Switch Emulator
+EAPI=7
+HOMEPAGE=https://ryujinx.org/
+INHERIT=desktop
+KEYWORDS=-* amd64
+LICENSE=MIT
+RDEPEND=x11-libs/libX11
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://ci.appveyor.com/api/buildjobs/4qycwybm3ilb6bqi/artifacts/ryujinx-1.0.6047-linux_x64.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d
+_md5_=35fe8d9e471d7602b42750615544219f

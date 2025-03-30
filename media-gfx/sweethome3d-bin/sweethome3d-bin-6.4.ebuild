@@ -4,7 +4,7 @@
 # This ebuild is a modified version of ebuild from java overlay.
 
 EAPI="6"
-inherit eutils
+#inherit eutils
 
 MY_PN="SweetHome3D"
 
