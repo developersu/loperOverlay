@@ -6,8 +6,10 @@ EAPI=8
 CRATES="
 "
 
+RUST_MIN_VER="1.85.0"
+
 declare -A GIT_CRATES=(
-        [isakmp]='https://github.com/ancwrd1/isakmp;ea250b6485ce251e1c0d7f61a836cb3fda4b1c55;isakmp-%commit%'
+        [isakmp]='https://github.com/ancwrd1/isakmp;77601eaa22f01fa6bf87cff0d0eb08dc3f75d0c5;isakmp-%commit%'
 )
 
 inherit desktop cargo systemd
@@ -48,10 +50,6 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 
-#PATCHES=(
-#        "${FILESDIR}"/assets/${P}-snx-rs-gui.desktop.patch
-#)
-
 src_prepare() {
 	default
 }
@@ -66,8 +64,8 @@ src_install() {
 	sed -i  -re 's/\/opt\/snx-rs\///g' assets/snx-rs.service
 	systemd_dounit assets/snx-rs.service
 
-	sed -i  -re 's/\/opt\/snx-rs\///g' \
-		-e 's/Categories=Network;VPN;/Categories=Network/' assets/snx-rs-gui.desktop
+	sed -i  -re 's/\/opt\/snx-rs\///g' assets/snx-rs-gui.desktop
+
 	domenu assets/snx-rs-gui.desktop
 
 	newconfd "${FILESDIR}"/conf.d.snx-rs snx-rs
