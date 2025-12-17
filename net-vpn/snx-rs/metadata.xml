@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email></email>
+		<name>Dmitry Isaenko</name>
+	</maintainer>
+	<use>
+		<flag name="mobile">Native Check Point 'cshell' tunnel emulation support</flag>
+	</use>
+</pkgmetadata>
