@@ -33,6 +33,7 @@ DEPEND="
 	media-libs/freetype
 	media-libs/harfbuzz
 	media-libs/libpng
+	media-libs/libva
 	sys-apps/util-linux
 	sys-devel/gcc
 	sys-libs/glibc
