@@ -28,6 +28,7 @@ DEPEND="
 	dev-libs/libpcre
 	dev-libs/libsigc++
 	dev-libs/libxml2
+	dev-libs/libxml2-compat
 	media-gfx/graphite2
 	media-libs/fontconfig
 	media-libs/freetype
